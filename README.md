@@ -25,15 +25,19 @@ Before you begin, make sure you have the following installed:
     cd ai-travelling-frontend
     npm i
 
+2. Create a .env file in the project root directory and add your Open API KEY like this:
+
+    ```
+    OPENAI_API_KEY=your_open_api_key_here
 
 
-2. Build the Docker image for the project inside the 'app' directory:
+3. Build the Docker image for the project inside the 'app' directory:
 
 
     ```
     docker build -t ai-piping-recommendations .
 
-3. Run the Docker container:
+4. Run the Docker container:
 
     ```
     docker run -p 3000:3000 ai-piping-recommendations

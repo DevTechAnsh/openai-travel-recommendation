@@ -20,18 +20,15 @@ def get_gpt_recommendations(prompt):
             engine="text-davinci-002",
             prompt=prompt,
             max_tokens=200,
-            api_key=settings.openai_api_key,
+            api_key=settings.OPENAI_API_KEY,
         )
 
 
         if response.choices:
             response = response.choices[0].text.split("\n")
             recommendations = [item.strip() for item in response if item.strip()]
-            try:
-                regex = r'\d+\)|\d+\.\s*'
-                recommendations = [part.strip() for item in recommendations for part in re.split(regex, item) if part]
-            except IndexError:
-                recommendations = []
+            regex = r'\d+\)|\d+\.\s*'
+            recommendations = [part.strip() for item in recommendations for part in re.split(regex, item) if part]
             return recommendations
         else:
             raise ValueError("OpenAI response did not contain valid choices.")
@@ -41,4 +38,7 @@ def get_gpt_recommendations(prompt):
     except Exception as e:
         # handle other exceptions
         raise ValueError(f"An unexpected error occurred: {e}")
+    except IndexError as e:
+        # handle list-index exceptions
+        raise ValueError(f"List-index error occurred: {e}")
 
