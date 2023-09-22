@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 
 from config.config import settings
-from core.openai_client import get_gpt_recommendations
+from backend.services.openai_client import get_gpt_recommendations
 
 
 # function to check if the season is valid

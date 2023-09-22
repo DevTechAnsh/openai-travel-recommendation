@@ -19,12 +19,15 @@ var/
 .installed.cfg
 *.egg
 
-# # IDE and editor files
-# .idea/
-# .vscode/
+# IDE and editor files
+.idea/
+.vscode/
 
 # Local development settings
 .env
 
 # Ignore Python cache directories
 __pycache__/
+
+# Ignore node_module
+node_modules/

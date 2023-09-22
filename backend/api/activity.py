@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, Query
 
 from core.utils import recommend_activities, validate_season
-
-router = APIRouter()
+from .router import router
 
 
 @router.get("/")

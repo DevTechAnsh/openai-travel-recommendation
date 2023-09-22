@@ -2,37 +2,11 @@ import './App.css';
 import { useMemo, useState } from 'react';
 import countryList from 'react-select-country-list';
 import Select from 'react-select'
-
-
-const Details = ({ data }) => {
-  return (
-    <div className='detail'>
-      <table>
-        <thead>
-          <tr>
-            <th>country</th>
-            <th>season</th>
-            <th>recommendations</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{data?.country}</td>
-            <td>{data?.season}</td>
-            <td> 
-            {data?.recommendations?.map((data) =>  data)}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div >
-  )
-}
+import { Detail } from './Details'
 
 function App() {
   const [country, setCountry] = useState(null)
   const [data, setData] = useState()
-  const [loading, setLoading] = useState()
 
   const options = useMemo(() => countryList().getData(), [])
   const [seasion, setSeasion] = useState('');
@@ -91,7 +65,7 @@ function App() {
       </div>
 
       {/* // rendering the data fetched by api */}
-      {data && <Details data={data} />}
+      {data && <Detail data={data} />}
     </>
 
   )
