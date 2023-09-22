@@ -19,42 +19,26 @@ Before you begin, make sure you have the following installed:
 
    ```bash
    git clone <repository-url>
-   cd app
 
-   ## For the frontend app
-    cd ai-travelling-frontend
-    npm i
-
-2. Create a .env file in the project root directory and add your Open API KEY like this:
+2. Create a .env file in the project backend directory and add your Open API KEY like this:
 
     ```
     OPENAI_API_KEY=your_open_api_key_here
 
 
-3. Build the Docker image for the project inside the 'app' directory:
-
-
-    ```
-    docker build -t ai-piping-recommendations .
-
-4. Run the Docker container:
+3. Run the backend and frontend server with this command
 
     ```
-    docker run -p 3000:3000 ai-piping-recommendations
+    docker compose up --build
 
  ## Application should now be accessible at -
 
-    http://localhost:3000 (can check backend on Swagger)
+    http://localhost:8000
 
 - To run the tests using pytest, within the Docker container:
   ```
   docker exec -it <container-id-or-name> pytest test.py
 
-- Start the frontend app separately for development:
-
-    ```
-    cd ai-travelling-frontend
-    npm start
 
 
 
